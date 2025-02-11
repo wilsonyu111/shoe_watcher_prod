@@ -1,0 +1,409 @@
+body {
+  font-family: system-ui, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.bodydisplay {
+  position: fixed;
+  max-height: 94%;
+  max-width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 87vh;
+  top: 13vh;
+  left: 320px;
+}
+
+.sorting_menu {
+  position: fixed;
+  top: 7.6vh;
+  left: 320px;
+}
+
+.bodycontent,
+.shoe_tile {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.fillerbox {
+  width: 210px;
+  height: 130px;
+  margin-right: 20px;
+  margin-bottom: 70px;
+}
+
+.shoe_card {
+  width: 300px;
+  margin: 10px;
+}
+
+.loadmore_button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+p[class*="tile_title"] {
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+p[class*="tile_title"],
+p[class*="tile_info"] {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+header[class*="top_navbar"] {
+  position: fixed;
+  height: 80px;
+}
+
+header[class*="side_navbar"] {
+  position: fixed;
+  left: 0;
+  width: 290px;
+  height: 100vh;
+  top: 80px;
+}
+
+
+
+p[class*="tile_info"] {
+  font-size: 11px;
+  font-weight: bold;
+}
+
+img[class*="card_image"] {
+  height: 200px;
+  object-fit: contain;
+}
+
+div[class*="tile_control_button"] {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+
+
+.modal-dialog {
+  position: fixed;
+  top: 20vh;
+  left: 10vh;
+}
+
+.message_box {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  height: 360px;
+  left: 40%;
+  right: 20%;
+  top: 40%;
+  bottom: 20%;
+}
+
+.error_msg {
+  display: flex;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.5rem;
+  padding-bottom: 30px;
+  justify-content: center;
+}
+
+.error_img {
+  width: 100%;
+  height: 100%;
+}
+
+div[class*="carousel slide"] {
+  position: fixed;
+  display: flex;
+  left: 40%;
+  top: 9%;
+  width: 350px;
+  height: 400px;
+  /* padding: 5px; */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+div[class*="carousel-indicators"] {
+  position: absolute;
+  bottom: 25%;
+  display: flex;
+  justify-content: center;
+}
+
+div[class*="slide_description"] {
+  display: flex;
+  flex-direction: column;
+}
+
+button[class*="nav_login_button"] {
+  color: aliceblue;
+}
+
+div[class*="credential_page"] {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: white;
+  max-height: 1000px;
+  min-height: 500px;
+  width: 420px;
+  height: auto;
+  padding-left: 60px;
+  padding-right: 60px;
+  border-radius: 10px;
+}
+
+p[class*="formtype_name"] {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2%;
+  font-size: large;
+  font-family: Helvetica;
+}
+
+div[class*="form_field"] {
+  margin-bottom: 5%;
+}
+
+button[class*="form_submit_button"] {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+div[class*="alternative_form_group"] {
+  /* margin-left: auto; */
+  /* margin-right: auto; */
+  display: flex;
+  flex-direction: row;
+  column-gap: 6px;
+  margin-bottom: 20px;
+  justify-content: left;
+}
+
+div[class*="link_to_reset_password"] {
+  /* margin-left: auto; */
+  /* margin-right: auto; */
+  display: flex;
+  flex-direction: row;
+  column-gap: 6px;
+  margin-bottom: 20px;
+  justify-content: right;
+}
+
+div[class*="successMessage"] {
+  /* position: fixed; */
+  display: flex;
+  flex-direction: row;
+  column-gap: 6px;
+  top: -30px;
+}
+
+div[class*="forgot_password"], div[class*="new_password_form"] {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  column-gap: 6px;
+  max-width: 350px;
+  max-height: 300px;
+
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  margin: auto;
+}
+
+button[class*=link_form_button]{
+  font-size: 15px;
+  text-decoration: none;
+}
+
+button[class*=link_form_button]:hover{
+  color: black;
+}
+
+p[class*="forgot_page_title "] {
+  position: fixed;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: Helvetica;
+  max-width: 300px;
+  max-height: 10px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  justify-content: center;
+  display: flex;
+}
+
+div[class*="request_again"] {
+  display: flex;
+  flex-direction: row;
+  width: 100px;
+  height: 30px;
+  margin: auto;
+}
+
+p[class*="missing_code_prompt "] {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+}
+
+p[class*="hello_name"] {
+  position: absolute;
+  margin: auto;
+}
+
+
+div[class*="errorMsg_area"] {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+  position: fixed;
+  max-width: 500px;
+  max-height: 50px;
+  justify-content:center ;
+}
+
+div[class*=logged_in_menu]{
+  max-width: 500px;
+  max-height: 500px;
+}
+
+div[class*="profile_side_item"] {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  position: fixed;
+  top:80px;
+  left: 10px;
+}
+
+div[class*="profile_box"]{
+  position: fixed;
+  left: 240px;
+  width: 76%;
+  margin-right: 3%;
+  min-width: 60%;
+  height: 300px;
+}
+
+button[class*=side_button]{
+  display: flex;
+  justify-content: left;
+  font-size: 12px;
+  text-decoration: none;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+div[class*="icon_description"]{
+  display: flex;
+  flex-direction: row;
+  column-gap: 10px;
+}
+
+div[class*="logged_in_greeting"]{
+  display: flex;
+  flex-direction: row;
+  /* column-gap: 10px; */
+}
+
+div[class*="logged_in_greeting_name"]{
+  display: flex;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 46px;       /* The same as your div height */
+}
+
+header[class*="profile_side_navbar"] {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 230px;
+  height: 100vh;
+
+}
+
+div[class*="delete_diag_box"]{
+  width: 700px;
+  height: 500px;
+  /* column-gap: 10px; */
+}
+
+div[class*="loading_area"]{
+  width: 50px;
+  height: 40px;
+  /* column-gap: 10px; */
+}
+
+div[class*="confirm_delete_buttons"]{
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  width: 350px;
+  height: 40px;
+  column-gap: 10px;
+  margin-right: 40px;
+  margin-bottom: 20px;
+}
+
+div[class*="update_user_info"]{
+
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  width: 350px;
+  height: 400px;
+  column-gap: 10px;
+  margin: 100px;
+}
+
+div[class*="loading_icon"]
+{
+  width: 49px;
+  height: 49px;
+}
+
+svg[class*="loading_icon_animation"]
+{
+  margin: auto;
+}
+
+div[class*="passwordChecks"]
+{
+  /* width: 49px; */
+  /* height: 48px; */
+  padding: -10px;
+  margin: 5px;
+
+}
+
