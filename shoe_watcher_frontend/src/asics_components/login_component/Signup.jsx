@@ -55,12 +55,25 @@ function VisibilityTextField({ id, mismatch, onChangeCallback }) {
   );
 }
 
+function PassMismatchSign({mismatch}){
+  console.log(mismatch)
+  return (
+          <Alert
+            className="passwordChecks"
+            sx={{ paddingTop: 0, paddingBottom: 0, height: 36 }}
+            severity={!mismatch ? "success" : "error"}
+          >
+            Password match?
+          </Alert>
+  )
+}
+
 function ValueFields({ checkMismatch, setMapInfo, getMapInfo, toLogin }) {
   const [passwordMismatch, setMismatch] = React.useState(false);
   const [enableSubmit, allowSubmit] = React.useState(true);
   const [errorMsg, setErrorMsg] = React.useState(<></>);
-  const [confimPassCheck, setConfimCheck] = React.useState(<></>);
-  const [newPassCheck, setNewCheck]= React.useState(<></>);
+  const [isMismatch, setIsMismatch] = React.useState(<></>);
+  const [newPassCheck, setNewCheck] = React.useState(<></>);
   const onErrorCallback = (success, msg) => {
     if (!success) {
       setErrorMsg(<Alert severity="error">Error signning up, {msg}</Alert>);
@@ -68,21 +81,23 @@ function ValueFields({ checkMismatch, setMapInfo, getMapInfo, toLogin }) {
       let time = 5;
       const interval = setInterval(() => {
         if (time > 0) {
-          setErrorMsg(<Alert severity="success">Sign up sucessfully, click below or wait to be redirected to login page ({time})</Alert>);
+          setErrorMsg(
+            <Alert severity="success">
+              Sign up sucessfully, click below or wait to be redirected to login
+              page ({time})
+            </Alert>
+          );
           time = time - 1;
-          
         } else {
           clearInterval(interval);
           toLogin();
         }
       }, 1000);
-      
     }
   };
 
   return (
     <>
-   
       <div className="error_msg_area">{errorMsg}</div>
       <Typography className="formtype_name">Sign up</Typography>
       <TextField
@@ -108,10 +123,11 @@ function ValueFields({ checkMismatch, setMapInfo, getMapInfo, toLogin }) {
           setMapInfo("password", password);
           setMismatch(checkMismatch());
           allowSubmit(checkMismatch());
-          setNewCheck(<PasswordCheck password={password}/>)
+          setNewCheck(<PasswordCheck password={password}/>);
+          setIsMismatch(<PassMismatchSign mismatch={checkMismatch()}/>);
         }}
       />
-      {newPassCheck}
+
       <VisibilityTextField
         id={"confirm_new_password"}
         mismatch={passwordMismatch}
@@ -119,10 +135,11 @@ function ValueFields({ checkMismatch, setMapInfo, getMapInfo, toLogin }) {
           setMapInfo("confirmPassword", password);
           setMismatch(checkMismatch());
           allowSubmit(checkMismatch());
-          setConfimCheck(<PasswordCheck password={password}/>)
+          setIsMismatch(<PassMismatchSign mismatch={checkMismatch()}/>);
         }}
       />
-      {confimPassCheck}
+      {isMismatch}
+      {newPassCheck}
       <Button
         className="form_submit_button"
         variant="contained"
@@ -154,8 +171,13 @@ function Signup({ setPageContent, closeWindow }) {
     if (
       getMapInfo("password") !== "" &&
       getMapInfo("confirmPassword") !== "" &&
-      getMapInfo("password") === getMapInfo("confirmPassword") && 
-      passwordRequirmentCheck(getMapInfo("password")).reduce(( prev_val, val)=>{return prev_val && val}, true)
+      getMapInfo("password") === getMapInfo("confirmPassword") &&
+      passwordRequirmentCheck(getMapInfo("password")).reduce(
+        (prev_val, val) => {
+          return prev_val && val;
+        },
+        true
+      )
     ) {
       return false;
     }

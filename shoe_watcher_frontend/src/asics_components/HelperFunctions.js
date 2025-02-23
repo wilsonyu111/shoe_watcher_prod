@@ -122,8 +122,8 @@ export function otpChecker(otp, email, successCallback, failCallback) {
 
 export function getSearchUrl(api_name) {
   let uri = "";
-  // let url = "http://localhost:8000";
-  let url = "";
+  let url = "http://localhost:8000";
+  // let url = "";
 
   switch (api_name) {
     case "search_engine":
@@ -359,7 +359,7 @@ export function getMyAccount(retry = 3) {
   } catch (err) {
     console.log("error");
   }
-
+  console.log(localStorage.getItem("access"))
   request.open("GET", getSearchUrl("my_account"));
   request.setRequestHeader("Content-Type", "application/json");
   request.setRequestHeader(
@@ -448,7 +448,7 @@ export function delete_sub_row(jsonData, doneDelete, failDelete, retry=3){
           });
         } else {
           failDelete()
-          console.log("error fetching account page...");
+          console.log("error fetching delete row...");
           console.log(request.response);
         }
       }
@@ -541,7 +541,7 @@ export function submit_Notify(jsonData, retry = 3) {
             submit_Notify(jsonData, retry - 1);
           });
         } else {
-          console.log("error fetching account page...");
+          console.log("error fetching submit notify...");
           console.log(request.response);
         }
       }

@@ -6,12 +6,13 @@ const allowedSpecial = "!@#$"
 const lowerLimit = 10;
 const upperLimit = 20;
 
-export default function PasswordCheck({ password }) {
+export default function PasswordCheck({ password}) {
     const [len, upper, lower, digit, specialChar] = passwordRequirmentCheck(password)
 
 
   return (
     <div>
+
       <Alert
         className="passwordChecks"
         sx={{ paddingTop: 0, paddingBottom: 0, height: 36 }}

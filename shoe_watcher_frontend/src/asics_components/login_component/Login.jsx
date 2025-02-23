@@ -51,7 +51,7 @@ function Login({ setPageContent, closeWindow }) {
       <TextField
         className="form_field"
         required
-        label="Email or Username"
+        label="Username"
         onChange={(event) => {
           setUsername(event.target.value);
         }}
